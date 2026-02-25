@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Press+Start+2P&family=Rajdhani:wght@500;700&display=swap');
+
+/* 1. VARIABLES DE PALETA ELÉCTRICA (ACTUALIZADO) */
+:root {
+  /* Fuentes */
+  --font-orbitron: 'Orbitron', sans-serif;
+  --font-rajdhani: 'Rajdhani', sans-serif;
+  --font-press-start: 'Press Start 2P', cursive;
+
+  /* Colores de Fondo (Adiós al negro puro) */
+  --bg-main: #060912;          /* Azul marino profundo */
+  --bg-card: #111827;          /* Azul oscuro para tarjetas/contenedores */
+  
+  /* Colores de Identidad */
+  --electric-blue: #0055ff;    /* Azul Francia / Eléctrico */
+  --neon-cyan: #00f2ff;        /* Cian para detalles técnicos */
+  --neon-pink: #ff007a;        /* Rosa para alertas/ofertas */
+  
+  /* Texto */
+  --text-main: #f8fafc;
+  --text-dim: #94a3b8;         /* Gris azulado para descripciones */
+
+  /* Efectos */
+  --glass-border: rgba(0, 85, 255, 0.2);
+  --glass-bg: rgba(17, 24, 39, 0.7);
+  
+  /* Variables compatibles con tu configuración anterior */
+  --background: var(--bg-main);
+  --foreground: var(--text-main);
+}
+
+/* 2. CONFIGURACIÓN DE TAILWIND V4 (Optimizado) */
+@theme inline {
+  --color-background: var(--bg-main);
+  --color-foreground: var(--text-main);
+  --color-electric: var(--electric-blue);
+  --font-orbitron: var(--font-orbitron);
+  --font-rajdhani: var(--font-rajdhani);
+}
+
+/* 3. RESET Y ESTILOS BASE */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--bg-main); /* Forzamos el azul profundo */
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-rajdhani); 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 4. UTILIDADES GLOBALES */
+h1, h2, h3, .title-gamer {
+  font-family: var(--font-orbitron);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-main);
+}
+
+/* Títulos con brillo azul Francia */
+.glow-title {
+  text-shadow: 0 0 15px var(--electric-blue);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: var(--neon-cyan);
+}
+
+/* Personalización de la barra de desplazamiento (Estilo High-Tech) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-card);
+  border-radius: 10px;
+  border: 1px solid var(--electric-blue);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--electric-blue);
+  box-shadow: 0 0 15px var(--electric-blue);
+}
+
+/* Contenedor principal de páginas */
+main {
+  padding-top: 100px !important; 
+  min-height: 100vh;
+  background-color: var(--bg-main);
+}
+
+/* 5. COMPONENTES GLOBALES REUTILIZABLES */
+
+/* Tarjetas con efecto Glassmorphism Azulado */
+.card-gamer {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.card-gamer:hover {
+  border-color: var(--electric-blue);
+  box-shadow: 0 0 20px rgba(0, 85, 255, 0.3);
+  transform: translateY(-5px);
+}
+
+/* Badge de descuento */
+.discount-badge {
+  background: var(--neon-pink);
+  color: white;
+  font-family: var(--font-orbitron);
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* Botón principal estilo consola */
+.btn-primary {
+  background: var(--electric-blue);
+  color: white;
+  font-family: var(--font-orbitron);
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  text-transform: uppercase;
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%); /* Efecto trapecio */
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: var(--neon-cyan);
+  color: black;
+  box-shadow: 0 0 20px var(--neon-cyan);
+}
