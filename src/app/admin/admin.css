@@ -1,0 +1,190 @@
+/* --- RESET DE FONDO GLOBAL --- */
+/* Esto elimina el negro chocante que se ve "detrás" del contenedor */
+html, body {
+  background-color: #060912 !important;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- VARIABLES DE PALETA ELÉCTRICA --- */
+:root {
+  --bg-main: #060912;          /* Azul marino profundo */
+  --bg-card: #111827;          /* Azul oscuro para tarjetas */
+  --electric-blue: #0055ff;    /* Azul Francia puro y vibrante */
+  --neon-cyan: #00f2ff;        /* Cian para detalles de luz */
+  --neon-pink: #ff007a;        /* Rosa para alertas/borrar */
+  --text-main: #f8fafc;        /* Blanco nieve */
+  --text-dim: #94a3b8;         /* Gris azulado para textos secundarios */
+  --glass-border: rgba(0, 85, 255, 0.3); /* Borde azul eléctrico sutil */
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.admin-container {
+  background-color: var(--bg-main) !important;
+  color: var(--text-main);
+  min-height: 100vh;
+  font-family: 'Rajdhani', sans-serif;
+  /* Eliminamos el choque visual asegurando que el fondo cubra todo */
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- TARJETAS GLASS --- */
+.glass {
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* --- TABLAS DE DATOS (STOCK Y VENTAS) --- */
+.admin-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px; 
+  margin-top: 10px;
+}
+
+.admin-table th {
+  color: var(--electric-blue);
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  padding: 15px;
+  border-bottom: 2px solid rgba(0, 85, 255, 0.2);
+  font-family: 'Orbitron', sans-serif;
+}
+
+.admin-table tr {
+  /* Fondo de fila ligeramente más claro que el fondo general */
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.3s ease;
+}
+
+.admin-table td {
+  padding: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Bordes redondeados para las filas flotantes */
+.admin-table tr td:first-child {
+  border-left: 3px solid var(--electric-blue);
+  border-radius: 12px 0 0 12px;
+}
+
+.admin-table tr td:last-child {
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 0 12px 12px 0;
+}
+
+.admin-table tr:hover {
+  background: rgba(0, 85, 255, 0.15) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 85, 255, 0.2);
+}
+
+/* --- INPUTS Y SELECTS --- */
+.admin-input {
+  background: #0f172a !important;
+  border: 1px solid var(--glass-border) !important;
+  color: var(--neon-cyan) !important; /* Texto cian para que parezca código */
+  padding: 14px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-family: 'monospace';
+}
+
+.admin-input:focus {
+  border-color: var(--electric-blue) !important;
+  box-shadow: 0 0 15px rgba(0, 85, 255, 0.4);
+  outline: none;
+}
+
+/* --- BOTONES --- */
+.nav-btn {
+  background: var(--electric-blue);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  text-transform: uppercase;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+}
+
+.nav-btn:hover {
+  background: #0044cc;
+  box-shadow: 0 0 20px rgba(0, 85, 255, 0.6);
+  transform: scale(1.05);
+}
+
+/* --- SWITCHER (MODO VACACIONES) --- */
+.gamer-switch {
+  position: relative;
+  display: inline-block;
+  width: 55px;
+  height: 28px;
+}
+
+.gamer-switch input { opacity: 0; width: 0; height: 0; }
+
+.gamer-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #1e293b;
+  transition: .4s;
+  border-radius: 34px;
+  border: 1px solid var(--glass-border);
+}
+
+.gamer-slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .gamer-slider {
+  background-color: var(--neon-pink);
+}
+
+input:checked + .gamer-slider:before {
+  transform: translateX(26px);
+}
+
+/* --- INDICADORES Y BADGES --- */
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+  box-shadow: 0 0 10px currentColor;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+/* --- SCROLLBAR TÉCNICA --- */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-main); }
+::-webkit-scrollbar-thumb { 
+  background: var(--bg-card); 
+  border-radius: 10px; 
+  border: 1px solid var(--electric-blue);
+}

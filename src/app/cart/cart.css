@@ -1,0 +1,76 @@
+.cart-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(0, 210, 255, 0.2);
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: var(--neon-pink);
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-left: auto;
+}
+
+.delivery-options {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option-card {
+    padding: 10px;
+    border: 1px solid #333;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.option-card.active {
+    border-color: var(--neon-blue);
+    background: rgba(0, 210, 255, 0.1);
+}
+
+.address-input {
+    width: 100%;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid var(--neon-blue);
+    color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.whatsapp-btn {
+    width: 100%;
+    padding: 15px;
+    background: #25D366;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.whatsapp-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.mercadopago-btn {
+    width: 100%;
+    padding: 15px;
+    background: #009EE3;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

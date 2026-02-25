@@ -1,0 +1,145 @@
+/* src/app/explore/explore.css */
+
+/* SIDEBAR */
+.filters-sidebar {
+  grid-area: sidebar;
+  position: sticky;
+  top: 100px;
+  padding: 25px;
+  z-index: 10;
+  border: 1px solid rgba(0, 210, 255, 0.1);
+  background: rgba(13, 2, 33, 0.6);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+.sidebar-title {
+  display: block;
+  margin-bottom: 15px;
+  font-family: 'Orbitron';
+  font-size: 1rem;
+  color: #00d2ff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.filter-group {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter-group button {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ccc;
+  padding: 12px 15px;
+  text-align: left;
+  font-family: 'Rajdhani';
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 8px;
+  text-transform: uppercase;
+}
+
+.filter-group button:hover, .filter-group button.active {
+  border-color: #00d2ff;
+  color: white;
+  background: rgba(0, 210, 255, 0.1);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .explore-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas: "sidebar" "main";
+    padding-top: 100px;
+  }
+  .filters-sidebar {
+    position: relative;
+    top: 0;
+  }
+}
+
+/* src/app/explore/explore.css */
+
+.explore-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  grid-template-areas: "sidebar main";
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 120px 20px 80px;
+  align-items: start;
+}
+
+/* Re-usamos las clases de page.css para la grilla y las cards */
+.main-content {
+  grid-area: main;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  width: 100%;
+}
+
+/* BOTONES LATERALES DE CATEGORÍA */
+.filter-group-btn {
+  display: block;
+  text-decoration: none;
+  margin-bottom: 8px;
+  padding: 14px;
+  font-family: var(--font-rajdhani);
+  font-size: 14px; /* Un poco más grande para legibilidad */
+  font-weight: 700;
+  text-align: left;
+  border: 1px solid transparent;
+  border-left: 3px solid rgba(255, 255, 255, 0.1); /* Línea lateral sutil */
+  color: var(--text-dim);
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.filter-group-btn:hover {
+  background: rgba(0, 85, 255, 0.05);
+  color: var(--neon-cyan);
+  border-left: 3px solid var(--neon-cyan);
+  padding-left: 20px; /* Efecto de desplazamiento al hover */
+}
+
+.filter-group-btn.active {
+  background: rgba(0, 85, 255, 0.15);
+  border: 1px solid var(--glass-border);
+  border-left: 4px solid var(--electric-blue);
+  color: white;
+  box-shadow: 0 0 15px rgba(0, 85, 255, 0.1);
+  padding-left: 20px;
+}
+
+/* El select de ordenamiento */
+.gamer-select-small {
+  background: var(--bg-main) !important;
+  border: 1px solid var(--glass-border) !important;
+  color: var(--text-main);
+  padding: 12px;
+  font-family: var(--font-rajdhani);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.gamer-select-small:focus {
+  border-color: var(--electric-blue) !important;
+  outline: none;
+}
